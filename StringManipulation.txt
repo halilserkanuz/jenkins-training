@@ -1,0 +1,73 @@
+1. String Concatenation
+
+string1="Hello, "
+string2="World!"
+greeting="$string1$string2"
+echo "$greeting"  # Outputs: Hello, World!
+
+
+2. String Length
+
+str="Hello, World!"
+echo "${#str}"  # Outputs: 13
+
+
+3. Substring Extraction
+
+str="Hello, World!"
+echo "${str:7:5}"  # Outputs: World
+
+
+4. Substring Replacement
+
+str="Hello, World! World is big."
+echo "${str/World/Earth}"  # Outputs: Hello, Earth! World is big. (replaces first occurrence)
+echo "${str//World/Earth}"  # Outputs: Hello, Earth! Earth is big. (replaces all occurrences)
+
+
+5. Default Values
+
+echo "${undefinedVar:-"Default Value"}"  # Outputs: Default Value
+
+
+6. String Prefix and Suffix Removal
+
+Remove shortest match from beginning (#): ${string#pattern}
+Remove longest match from beginning (##): ${string##pattern}
+Remove shortest match from end (%): ${string%pattern}
+Remove longest match from end (%%): ${string%%pattern}
+
+filename="sample.txt"
+echo "${filename%.*}"  # Outputs: sample (removes the shortest match from the end)
+echo "${filename%%.*}"  # Outputs: sample (same as above since there's only one dot)
+
+dirname="/usr/local/bin/script.sh"
+echo "${dirname##*/}"  # Outputs: script.sh (removes everything up to and including the last slash)
+
+
+7. Case Modification (Bash 4+)
+
+Capitalize first letter: ${string^}
+Capitalize all letters: ${string^^}
+Lowercase first letter: ${string,}
+Lowercase all letters: ${string,,}
+
+str="hello world"
+echo "${str^}"  # Outputs: Hello world
+echo "${str^^}"  # Outputs: HELLO WORLD
+
+
+8. Checking if String Contains a Substring
+
+str="Hello, World!"
+if [[ "$str" == *"World"* ]]; then
+  echo "It contains World!"
+fi
+
+
+9. Extracting Strings Based on Delimiters
+
+str="user:password"
+username=$(echo "$str" | cut -d':' -f1)
+echo "$username"  # Outputs: user
+

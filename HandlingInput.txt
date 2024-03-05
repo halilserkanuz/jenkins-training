@@ -1,0 +1,57 @@
+Read command
+
+# Single value
+
+echo "Enter your name:"
+read name
+echo "Hello, $name!"
+
+# Multiple value
+
+echo "Enter your first and last name:"
+read firstname lastname
+echo "Hello, $firstname $lastname!"
+
+# Silent input
+
+echo "Enter your password:"
+read -s password
+echo "Password is set."
+
+# Setting time limit
+
+read -t 5 -p "Enter your age within 5 seconds: " age
+echo "Age: $age"
+
+
+
+Command Line Arguments
+
+#!/bin/bash
+echo "Script Name: $0"
+echo "First Argument: $1"
+echo "Second Argument: $2"
+echo "All Arguments: $*"
+echo "Number of Arguments: $#"
+
+
+bash script.sh value1 value2
+
+
+Using Options and Flags
+
+#!/bin/bash
+
+while getopts "u:p:" opt; do
+  case $opt in
+    u) username=$OPTARG;;
+    p) password=$OPTARG;;
+    \?) echo "Invalid option: -$OPTARG" >&2;;
+  esac
+done
+
+echo "Username: $username"
+echo "Password: $password"
+
+
+bash script.sh -u user -p pass
