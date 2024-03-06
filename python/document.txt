@@ -1,0 +1,40 @@
+# Setting up environment
+python -m venv venv
+source venv/bin/activate # for unix
+source venv/Scripts/activate # for windows
+
+# Basic syntax - indentations and comments
+# Comments
+
+import os
+
+def test():
+    # Comment
+    """
+    Line 1
+    Line 2
+    Test "this"
+    """
+    print("test")
+
+# Convensions (PEP8)
+
+# Data types
+
+List
+
+people = ["Serkan", "Ahmet"]
+
+
+# Control Structures
+
+if else elif
+
+for
+
+while
+
+break
+continue
+pass
+
